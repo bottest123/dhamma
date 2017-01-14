@@ -1,0 +1,18 @@
+language: php
+
+php:
+  - '7.0'
+
+services:
+  - postgresql
+  - redis-server
+
+before_install:
+  - psql -c 'create database dhamma_test_db;' -U postgres
+
+install:
+  - "composer install --dev"
+  - "./artisan migrate"
+
+script:
+  - "make test"

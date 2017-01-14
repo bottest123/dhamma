@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Services\Storage\PostgresKeyValueStorage;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+
     /**
      * Bootstrap any application services.
      *
@@ -16,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+
     /**
      * Register any application services.
      *
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('persistent_kv', function () {
+            return new PostgresKeyValueStorage();
+        });
     }
 }
