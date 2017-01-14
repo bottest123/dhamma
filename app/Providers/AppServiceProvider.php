@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('persistent_kv', function () {
+        $this->app->singleton('persistent.kv', function () {
             return new PostgresKeyValueStorage();
         });
     }
