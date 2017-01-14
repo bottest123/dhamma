@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Storage\PostgresKeyValueStorage;
+use App\Services\Storage\RawMessageStorage;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('persistent.kv', function () {
             return new PostgresKeyValueStorage();
+        });
+
+        $this->app->singleton('messages.raw', function () {
+            return new RawMessageStorage();
         });
     }
 }

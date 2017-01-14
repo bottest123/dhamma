@@ -2,7 +2,7 @@
 
 namespace App\Services\Storage;
 
-use App\Contracts\Storage\KeyValueStorageInterface;
+use App\Contracts\Storage\KeyValueStorage as KeyValueStorageInterface;
 use App\Models\KeyValueStorage;
 
 class PostgresKeyValueStorage implements KeyValueStorageInterface

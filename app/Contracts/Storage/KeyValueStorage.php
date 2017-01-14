@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Storage;
 
-interface KeyValueStorageInterface
+interface KeyValueStorage
 {
 
 

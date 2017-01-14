@@ -14,8 +14,10 @@ class CreateRawMessageTable extends Migration
      */
     public function up()
     {
-        Schema::create('raw_message', function (Blueprint $table) {
+        Schema::create('raw_messages', function (Blueprint $table) {
             $table->increments('id');
+            $table->jsonb('json_data');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateRawMessageTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('raw_messages');
     }
 }
